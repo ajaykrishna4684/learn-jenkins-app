@@ -2,17 +2,15 @@ pipeline {
     agent any  // Global agent needed when using stage-specific agents
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             agent {
                 docker {
                     image 'node:18-alpine'
                 }
             }
             steps {
-                echo 'Hello World'
-                sh 'npm --version'
-                sh 'echo "Hello" > Hello'
-                sh 'ls -l'
+                sh 'npm ci'
+                sh 'nmp run build'
             }
         }
         
@@ -20,6 +18,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
+                    reuseNode true
                 }
             }
             steps {
