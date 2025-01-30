@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh 'ls -l'
                 sh 'npm ci'
-                sh 'npp run build'
+                sh 'npm run build'
                 sh 'ls -l'
             }
         }
