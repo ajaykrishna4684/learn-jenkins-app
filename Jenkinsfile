@@ -9,8 +9,10 @@ pipeline {
                 }
             }
             steps {
+                sh 'ls -l'
                 sh 'npm ci'
-                sh 'nmp run build'
+                sh 'npp run build'
+                sh 'ls -l'
             }
         }
         
@@ -23,9 +25,8 @@ pipeline {
             }
             steps {
                 echo 'Hi'
-                sh 'npm --version'
-                sh 'echo "Hi" > Hi'
                 sh 'ls -l'
+                sh 'npm --version'
             }
         }
     }
